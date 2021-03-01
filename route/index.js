@@ -13,7 +13,6 @@
   module.exports = function(app) {
       const objRepo = {};
 
-
       app.get('/companys',
           authMW(objRepo),
           getCompanysMW(objRepo),
@@ -42,30 +41,30 @@
           getCoolersMW(objRepo),
           renderMW(objRepo, 'company_details'));
 
-      app.get('/cooler/:companyid',
+      app.get('/cooler/:coolerid',
           authMW(objRepo),
-          getCompanyMW(objRepo),
           getCoolerMW(objRepo),
-          renderMW(objRepo, 'onecompanyscooles'));
-      app.use('/cooler/:coolerid/new',
+          renderMW(objRepo, 'cooler_edit'));
+
+      app.use('/cooler/:companyid/new',
           authMW(objRepo),
           getCompanyMW(objRepo),
           saveCoolerMW(objRepo),
-          renderMW(objRepo, 'cooleritem'));
+          renderMW(objRepo, 'company_details'));
 
-      app.use('/cooler/:comapnyid/edit/:coolerid',
+      app.use('/cooler/edit/:coolerid',
           authMW(objRepo),
           getCompanyMW(objRepo),
           getCoolerMW(objRepo),
           saveCoolerMW(objRepo),
-          renderMW(objRepo, 'cooleritem'));
+          renderMW(objRepo, 'company_details'));
 
-      app.get('/cooler/:companyid/del/:coolerid',
+      app.get('/cooler/del/:coolerid',
           authMW(objRepo),
           getCompanyMW(objRepo),
           getCoolerMW(objRepo),
           delCoolerMW(objRepo),
-          renderMW(objRepo, 'cooleritem'));
+          renderMW(objRepo, 'company_details'));
 
       app.use('/',
           checkPassMW(objRepo),
