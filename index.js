@@ -3,6 +3,8 @@
 
   app.use(express.static('static'));
 
+  app.set('view engine', 'ejs');
+
   // Load routing
   require('./route/index')(app);
 

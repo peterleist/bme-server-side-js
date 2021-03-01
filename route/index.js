@@ -13,30 +13,34 @@
   module.exports = function(app) {
       const objRepo = {};
 
-      app.use('/',
-          checkPassMW(objRepo),
-          renderMW(objRepo, 'index'));
 
       app.get('/companys',
           authMW(objRepo),
           getCompanysMW(objRepo),
-          renderMW(objRepo, 'companylist'));
+          renderMW(objRepo, 'company_main'));
 
       app.use('/companys/new',
           authMW(objRepo),
           saveCompanyMW(objRepo),
-          renderMW(objRepo, 'companynew'));
+          renderMW(objRepo, 'company_add'));
 
       app.use('/company/edit/:companyid',
           authMW(objRepo),
           getCompanyMW(objRepo),
           saveCompanyMW(objRepo),
-          renderMW(objRepo, 'companydetails'));
+          renderMW(objRepo, 'company_details'));
 
       app.get('/company/del/:companyid',
           authMW(objRepo),
           getCompanyMW(objRepo),
-          delCompanyMW(objRepo));
+          delCompanyMW(objRepo),
+          renderMW(objRepo, 'company_main'));
+
+      app.get('/coolers/:companyid',
+          authMW(objRepo),
+          getCompanyMW(objRepo),
+          getCoolersMW(objRepo),
+          renderMW(objRepo, 'company_details'));
 
       app.get('/cooler/:companyid',
           authMW(objRepo),
@@ -62,4 +66,9 @@
           getCoolerMW(objRepo),
           delCoolerMW(objRepo),
           renderMW(objRepo, 'cooleritem'));
+
+      app.use('/',
+          checkPassMW(objRepo),
+          renderMW(objRepo, 'index'));
+
   };

@@ -1,0 +1,22 @@
+
+
+Routing
+
+renderMW
+
+middlewares/auth/
+    handleWrongPass
+    checkPassMW
+    authMW
+
+middlewares/company/
+    getCompanys
+    getCompanys
+    saveCompany
+    delCompany
+
+moddlewares/cooler/
+    getCoolers
+    getCooler
+    saveCooler
+    delCooler
