@@ -6,7 +6,21 @@
   const requireOption = require('../requireOption');
 
   module.exports = function(objectrepository) {
+      const CompanyModel = requireOption(objectrepository, 'CompanyModel');
+
       return function(req, res, next) {
-          next();
+          if (typeof res.locals.company === 'undefined') {
+              res.locals.company = new CompanyModel();
+              res.locals.company.name = 'New'
+          }
+
+          res.locals.company.save(err => {
+              if (err) {
+                  return next(err);
+              }
+
+              return res.redirect('/company_main');
+          });
+
       };
   };

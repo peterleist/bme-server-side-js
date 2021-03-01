@@ -10,8 +10,14 @@
   const getCompanyMW = require('../middleware/company/getCompanyMW');
   const saveCompanyMW = require('../middleware/company/saveCompanyMW');
 
+  const CompanyModel = require('../models/company');
+  const CoolerModel = require('../models/cooler');
+
   module.exports = function(app) {
-      const objRepo = {};
+      const objRepo = {
+          CompanyModel: CompanyModel,
+          CoolerModel: CoolerModel
+      };
 
       app.get('/companys',
           authMW(objRepo),
