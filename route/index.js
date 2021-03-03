@@ -26,8 +26,12 @@
 
       app.use('/companys/new',
           authMW(objRepo),
-          saveCompanyMW(objRepo),
           renderMW(objRepo, 'company_add'));
+
+      app.use('/companys/add',
+          authMW(objRepo),
+          saveCompanyMW(objRepo),
+          renderMW(objRepo, 'company_main'));
 
       app.use('/company/edit/:companyid',
           authMW(objRepo),
