@@ -31,12 +31,14 @@
       app.use('/companys/add',
           authMW(objRepo),
           saveCompanyMW(objRepo),
+          getCompanysMW(objRepo),
           renderMW(objRepo, 'company_main'));
 
       app.use('/company/edit/:companyid',
           authMW(objRepo),
           getCompanyMW(objRepo),
           saveCompanyMW(objRepo),
+          getCoolersMW(objRepo),
           renderMW(objRepo, 'company_details'));
 
       app.get('/company/del/:companyid',
@@ -60,6 +62,7 @@
           authMW(objRepo),
           getCompanyMW(objRepo),
           saveCoolerMW(objRepo),
+          getCoolersMW(objRepo),
           renderMW(objRepo, 'company_details'));
 
       app.use('/cooler/edit/:coolerid',

@@ -5,7 +5,24 @@
 const requireOption = require('../requireOption');
 
 module.exports = function(objectrepository) {
+    const CoolerModel = requireOption(objectrepository, 'CoolerModel');
+
     return function(req, res, next) {
-        next();
+        res.locals.coolers = [];
+        if (typeof res.locals.company === 'undefined') {
+            return next();
+        }
+
+        CoolerModel.find({ _owner: res.locals.company._id }, (err, coolers) => {
+            if (err) {
+                return next(err);
+            }
+            console.log(res.locals.company._id);
+            console.log(coolers);
+
+            res.locals.coolers = coolers;
+            console.log(res.locals.coolers);
+            return next();
+        });
     };
 };
