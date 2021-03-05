@@ -11,6 +11,8 @@
       return function(req, res, next) {
           if (typeof res.locals.company === 'undefined') {
               res.locals.company = new CompanyModel();
+          } else {
+              res.locals.company._id = req.params.companyid;
           }
 
           res.locals.company.name = req.body.cp_name;
@@ -25,8 +27,7 @@
               if (err) {
                   return next(err);
               }
-
-              return res.redirect('/companys');
+              return next();
           });
 
       };

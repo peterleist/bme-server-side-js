@@ -20,13 +20,17 @@
                                         <h4 class="card-title">
                                             <%= companies[index].name %>
                                         </h4>
-                                        <h6 class="card-subtitle text-muted">Location</h6>
-                                        <p class="card-text p-y-1">Description</p>
+                                        <h6 class="card-subtitle text-muted">
+                                            <%= companies[index].zip + " " + companies[index].city + " " + companies[index].address %>
+                                        </h6>
+                                        <p class="card-text p-y-1">
+                                            <%= companies[index].desc %>
+                                        </p>
                                     </div>
                                     <div class="container" style="padding-bottom: 1em;">
                                         <div class="row">
                                             <div class="col-8">
-                                                <a href="/coolers/:companyid" class="btn btn-secondary btn-block">Open</a>
+                                                <a href="/coolers/<%= companies[index]._id %>" class="btn btn-secondary btn-block">Open</a>
                                             </div>
                                             <div class="col-4">
                                                 <a href="/company/del/<%= companies[index]._id  %>" class="btn btn-danger btn-block">X</a>

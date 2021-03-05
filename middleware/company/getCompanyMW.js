@@ -8,6 +8,8 @@ module.exports = function(objectrepository) {
     const CompanyModel = requireOption(objectrepository, 'CompanyModel');
 
     return function(req, res, next) {
+        console.log(req.params);
+
         CompanyModel.findOne({ _id: req.params.companyid }, (err, company) => {
             if (err || !company) {
                 return next(err);

@@ -65,72 +65,76 @@
 
             </div>
             <div class="col-md-4 order-md-1">
-                <div class="mb-3" contenteditable="true">
-                    <h4>
-                        <input class="form-control border-0 input-lg" type="text" value="Company name" id="example-tel-input">
-                    </h4>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <h6>Address:</h6>
-                    </div>
-                    <div class="col-8" contenteditable="true">
-                        <input class="form-control border-0" type="text" value="Test street 5." id="example-tel-input">
-                    </div>
-                </div>
+                <form method="POST" action="/company/edit/<%= company._id %>">
 
-                <div class="row">
-                    <div class="col-4">
-                        <h6>ZIP code:</h6>
+                    <div class="mb-3">
+                        <h4>
+                            <input class="form-control border-0 input-lg" type="text" value="<%= company.name %>" id="cp_name" name="cp_name">
+                        </h4>
                     </div>
-                    <div class="col-8" contenteditable="true">
-                        <input class="form-control border-0" type="text" value="12345" id="example-tel-input">
+                    <div class="row">
+                        <div class="col-4">
+                            <h6>Address:</h6>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control border-0" type="text" value="<%= company.address %>" id="addr" name="addr">
+                        </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-4">
-                        <h6>City:</h6>
+                    <div class="row">
+                        <div class="col-4">
+                            <h6>ZIP code:</h6>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control border-0" type="text" value="<%= company.zip %>" id="zip" name="zip">
+                        </div>
                     </div>
-                    <div class="col-8" contenteditable="true">
-                        <input class="form-control border-0" type="text" value="Test city" id="example-tel-input">
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-4">
-                        <h6>State:</h6>
+                    <div class="row">
+                        <div class="col-4">
+                            <h6>City:</h6>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control border-0" type="text" value="<%= company.city %>" id="city" name="city">
+                        </div>
                     </div>
-                    <div class="col-8" contenteditable="true">
-                        <input class="form-control border-0" type="text" value="Test state" id="example-tel-input">
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-4">
-                        <h6>Email:</h6>
+                    <div class="row">
+                        <div class="col-4">
+                            <h6>State:</h6>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control border-0" type="text" value="<%= company.state %>" id="state" name="state">
+                        </div>
                     </div>
-                    <div class="col-8" contenteditable="true">
-                        <input class="form-control border-0" type="text" value="1234@5678.com" id="example-tel-input">
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-4">
-                        <h6>Description:</h6>
+                    <div class="row">
+                        <div class="col-4">
+                            <h6>Email:</h6>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control border-0" type="text" value="<%= company.email %>" id="email" name="email">
+                        </div>
                     </div>
-                    <div class="col-8" contenteditable="true">
-                        <input style="    outline:0px !important;
-                    -webkit-appearance:none;
-                    box-shadow: none !important;" class="form-control border-0" type="text" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel vestibulum sem, dictum luctus nibh. Curabitur mattis eros nisi, eget." id="example-tel-input">
-                    </div>
-                </div>
 
-                <div class="row mx-auto">
-                    <div class="col text-center">
-                        <a class="btn btn-secondary btn-lg" type="submit" href="/coolers/:companyid">Update</a>
+                    <div class="row">
+                        <div class="col-4">
+                            <h6>Description:</h6>
+                        </div>
+                        <div class="col-8">
+                            <input style="    outline:0px !important;
+                        -webkit-appearance:none;
+                        box-shadow: none !important;" class="form-control border-0" type="text" value="<%= company.desc %>" id="desc" name="desc">
+                        </div>
                     </div>
-                </div>
+
+                    <div class="row mx-auto">
+                        <div class="col text-center">
+                            <input class="btn btn-secondary btn-lg" type="submit" value="Update" />
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
