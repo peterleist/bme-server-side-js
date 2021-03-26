@@ -1,4 +1,5 @@
   const authMW = require('../middleware/auth/authMW');
+  const logOutMW = require('../middleware/auth/logOutMW');
   const checkPassMW = require('../middleware/auth/checkPassMW');
   const renderMW = require('../middleware/renderMW');
   const delCoolerMW = require('../middleware/cooler/delCoolerMW');
@@ -78,6 +79,8 @@
           getCoolerMW(objRepo),
           delCoolerMW(objRepo),
           renderMW(objRepo, 'company_details'));
+
+      app.use('/logout', logOutMW(objRepo));
 
       app.use('/',
           checkPassMW(objRepo),

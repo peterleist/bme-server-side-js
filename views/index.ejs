@@ -1,19 +1,14 @@
 <%- include ('header', {style: 'login'}) -%>
-    <form class="form-signin">
+    <form class="form-signin" method="POST">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Cooler manager</h1>
         </div>
 
         <div class="form-label-group">
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-            <label for="inputEmail">Email address</label>
-        </div>
-
-        <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
             <label for="inputPassword">Password</label>
         </div>
-        <a class="btn btn-lg btn-primary btn-block" type="submit" href="companys">Sign in</a>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign in" />
         <button type="button" class="btn btn-link">Forgot password</button>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2021</p>
     </form>
