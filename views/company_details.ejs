@@ -14,19 +14,27 @@
                 </h4>
                 <div class="list-group">
                     <% coolers.forEach(element => { %>
-                        <a href="/cooler/:coolerid" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="/cooler/<%= element._id %>" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="row">
                                 <div class="col-3">
-                                    <h5 class="mb-1">Name</h5>
+                                    <h5 class="mb-1">
+                                        <%= element.name %>
+                                    </h5>
                                 </div>
                                 <div class="col-3">
-                                    <p class="mb-1">Type</p>
+                                    <p class="mb-1">
+                                        <%= element.type %>
+                                    </p>
                                 </div>
                                 <div class="col-3">
-                                    <p class="mb-1">Status</p>
+                                    <p class="mb-1">
+                                        <%= element.status %>
+                                    </p>
                                 </div>
                                 <div class="col-3">
-                                    <p class="mb-1">Date</p>
+                                    <p class="mb-1">
+                                        <%= element.date %>
+                                    </p>
                                 </div>
                             </div>
                         </a>

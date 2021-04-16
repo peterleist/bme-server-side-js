@@ -17,11 +17,7 @@ module.exports = function(objectrepository) {
             if (err) {
                 return next(err);
             }
-            console.log(res.locals.company._id);
-            console.log(coolers);
-
             res.locals.coolers = coolers;
-            console.log(res.locals.coolers);
             return next();
         });
     };

@@ -6,28 +6,28 @@
 
         <div class="row">
             <div class="col-md-12 order-md-1">
-                <form class="needs-validation" novalidate>
+                <form method="POST" action="/cooler/edit/<%= cooler._id %>/<%= cooler._owner %>" class="needs-validation" novalidate>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <input class="form-control" type="text" value="Name old" id="example-tel-input">
+                            <input class="form-control" type="text" value="<%= cooler.name %>" id="name" name="name">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <input class="form-control" type="text" value="Type old" id="example-tel-input">
+                            <input class="form-control" type="text" value="<%= cooler.type %>" id="type" name="type">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <input class="form-control" type="text" value="Status old" id="example-tel-input">
+                            <input class="form-control" type="text" value="<%= cooler.status %>" id="status" name="status">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                            <input class="form-control" type="date" value="<%= new Date(cooler.date).toISOString() %>" id="date" name="date">
                         </div>
                     </div>
                     <hr class="mb-4">
                     <div class="row">
                         <div class="col text-center">
-                            <a class="btn btn-dark btn-lg" type="submit" href="/cooler/edit/:coolerid">Submit</a>
-                            <a class="btn btn-danger btn-lg" type="submit" href="/cooler/del/:coolerid">Delete</a>
+                            <input class="btn btn-dark btn-lg" type="submit" value="Update"></input>
+                            <a class="btn btn-danger btn-lg" href="/cooler/del/<%= cooler._id %>/<%= cooler._owner %>">Delete</a>
                         </div>
                     </div>
                 </form>

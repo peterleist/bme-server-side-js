@@ -66,18 +66,20 @@
           getCoolersMW(objRepo),
           renderMW(objRepo, 'company_details'));
 
-      app.use('/cooler/edit/:coolerid',
+      app.use('/cooler/edit/:coolerid/:companyid',
           authMW(objRepo),
-          getCompanyMW(objRepo),
           getCoolerMW(objRepo),
           saveCoolerMW(objRepo),
+          getCompanyMW(objRepo),
+          getCoolersMW(objRepo),
           renderMW(objRepo, 'company_details'));
 
-      app.get('/cooler/del/:coolerid',
+      app.get('/cooler/del/:coolerid/:companyid',
           authMW(objRepo),
-          getCompanyMW(objRepo),
           getCoolerMW(objRepo),
           delCoolerMW(objRepo),
+          getCompanyMW(objRepo),
+          getCoolersMW(objRepo),
           renderMW(objRepo, 'company_details'));
 
       app.use('/logout', logOutMW(objRepo));
