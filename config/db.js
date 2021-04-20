@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/CoolerManager', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/H5DK7B', { useNewUrlParser: true });
 
 module.exports = mongoose;

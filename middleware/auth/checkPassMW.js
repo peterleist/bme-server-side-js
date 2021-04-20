@@ -9,7 +9,7 @@ module.exports = function(objectrepository) {
             return next();
         }
 
-        if (req.body.password === 'takibacsi') {
+        if (req.body.password === 'password') {
             req.session.belepve = true;
             return req.session.save(err => res.redirect('/companys'));
         }
